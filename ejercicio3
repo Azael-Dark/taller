@@ -1,0 +1,24 @@
+def verificar_par_impar():
+    cantidad_pares = 0
+    cantidad_impares = 0
+    listado = []
+
+    for i in range(400):
+        numero = int(input(f"Ingrese el número {i + 1}: "))
+        listado.append(numero)
+
+        if numero % 2 == 0:
+            cantidad_pares += 1
+            estado = "par"
+        else:
+            cantidad_impares += 1
+            estado = "impar"
+        
+        print(f"El número {numero} es {estado}.")
+
+    print("\nListado de números ingresados:")
+    print(listado)
+    print(f"\nTotal de números pares: {cantidad_pares}")
+    print(f"Total de números impares: {cantidad_impares}")
+
+verificar_par_impar()
