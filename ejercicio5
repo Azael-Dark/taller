@@ -1,0 +1,36 @@
+def clasificar_cabinas():
+    cabinas = 407
+    resultados = {
+        "Defectuoso": 0,
+        "Moderado": 0,
+        "Óptimo": 0
+    }
+    
+    for i in range(cabinas):
+        while True:
+            try:
+                puntaje = int(input(f"Ingrese el puntaje de funcionamiento para la cabina {i + 1} (2, 3 o 4): "))
+                if puntaje not in [2, 3, 4]:
+                    print("Por favor, ingrese un puntaje válido (2, 3 o 4).")
+                    continue
+                break
+            except ValueError:
+                print("Entrada no válida. Por favor, ingrese un número entero.")
+
+        if puntaje == 2:
+            resultados["Defectuoso"] += 1
+            estado = "Defectuoso"
+        elif puntaje == 3:
+            resultados["Moderado"] += 1
+            estado = "Moderado"
+        elif puntaje == 4:
+            resultados["Óptimo"] += 1
+            estado = "Óptimo"
+        
+        print(f"La cabina {i + 1} tiene un funcionamiento: {estado}")
+
+    print("\nResumen de resultados:")
+    for estado, cantidad in resultados.items():
+        print(f"{estado}: {cantidad} cabinas")
+
+clasificar_cabinas()
