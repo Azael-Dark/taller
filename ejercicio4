@@ -1,0 +1,40 @@
+def clasificar_leucemia():
+    pacientes = 803
+    resultados = {
+        "Sin Leucemia": 0,
+        "Nivel Bajo": 0,
+        "Nivel Moderado": 0,
+        "Nivel Grave": 0
+    }
+    
+    for i in range(pacientes):
+        while True:
+            try:
+                puntaje = int(input(f"Ingrese el puntaje de leucemia para el paciente {i + 1}: "))
+                if puntaje < 0 or puntaje > 100:
+                    print("Por favor, ingrese un puntaje válido entre 0 y 100.")
+                    continue
+                break
+            except ValueError:
+                print("Entrada no válida. Por favor, ingrese un número entero.")
+
+        if puntaje < 10:
+            resultados["Sin Leucemia"] += 1
+            estado = "Sin Leucemia"
+        elif 10 <= puntaje <= 40:
+            resultados["Nivel Bajo"] += 1
+            estado = "Nivel Bajo"
+        elif 41 <= puntaje <= 69:
+            resultados["Nivel Moderado"] += 1
+            estado = "Nivel Moderado"
+        elif 70 <= puntaje <= 100:
+            resultados["Nivel Grave"] += 1
+            estado = "Nivel Grave"
+        
+        print(f"El puntaje de leucemia para el paciente {i + 1} es: {estado}")
+
+    print("\nResumen de resultados:")
+    for nivel, cantidad in resultados.items():
+        print(f"{nivel}: {cantidad} pacientes")
+
+clasificar_leucemia()
