@@ -1,0 +1,14 @@
+def generar_serie(cantidad):
+    serie = []
+    a, b = 5, 8 
+
+    while len(serie) < cantidad:
+        if a != 13:  
+            serie.append(a)
+        a, b = b, a + b 
+
+    return serie
+
+primeros_100_numeros = generar_serie(100)
+
+print(primeros_100_numeros)
