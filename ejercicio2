@@ -1,0 +1,28 @@
+empleados = [
+    {"nombre": "Empleado 1", "salario_base": 2000, "comision": 300},
+    {"nombre": "Empleado 2", "salario_base": 2500, "comision": 400},
+]
+
+for i in range(3, 1898):
+    empleados.append({
+        "nombre": f"Empleado {i}",
+        "salario_base": 2000 + (i % 100) * 10,  
+        "comision": 100 + (i % 50) * 5,  
+    })
+
+porcentaje_seguridad_social = 0.075  
+
+def calcular_salario(empleado):
+    salario_base = empleado["salario_base"]
+    comision = empleado["comision"]
+    deduccion = (salario_base + comision) * porcentaje_seguridad_social
+    salario_neto = salario_base + comision - deduccion
+    return salario_neto
+
+print(f"{'Nombre':<15} {'Salario Base':<15} {'Comisión':<15} {'Salario Neto':<15}")
+print("="*60)
+
+for empleado in empleados:
+    salario_neto = calcular_salario(empleado)
+    print(f"{empleado['nombre']:<15} {empleado['salario_base']:<15} {empleado['comision']:<15} {salario_neto:<15.2f}")
+
